@@ -21,35 +21,35 @@ To clone the project on a different computer, follow these steps:
 Open a terminal or command prompt.
 Navigate to the directory where you want to clone the project.
 Run the following command:
-'''git clone git@github.com:heyman242/talent-sumo-assignment.git'''
+> git clone git@github.com:heyman242/talent-sumo-assignment.git
 
 Navigate to the project directory using the cd command. For example:
 
-'''cd /path/to/project/directory'''
+> cd /path/to/project/directory
 
 Create a virtual environment (optional but recommended) to isolate the project dependencies.
 Run the following command:
-On Windows: '''python -m venv env'''
-On macOS and Linux: '''python3 -m venv env'''
+On Windows: > python -m venv env
+On macOS and Linux: > python3 -m venv env
 
 Activate the virtual environment:
-On Windows: '''env\Scripts\activate'''
+On Windows: > env\Scripts\activate
 
-On macOS and Linux: '''source env/bin/activate'''
+On macOS and Linux: > source env/bin/activate
 
 Install the project dependencies. 
 Run the following command:
 
-'''pip install -r requirements.txt'''
+> pip install -r requirements.txt
 This will install the required packages and libraries.
 
 Apply migrations to create the necessary database tables. Run the following command:
 
-'''python manage.py migrate'''
+> python manage.py migrate
 
 Start the development server:
 
-'''python manage.py runserver'''
+> python manage.py runserver
 
 This will start the server locally.
 Access the project in your web browser by visiting http://localhost:8000/ or the URL mentioned in the terminal.
