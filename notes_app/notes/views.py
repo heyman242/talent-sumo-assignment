@@ -2,11 +2,11 @@ from django.db.models import Q
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+
 from .models import Note, RegisteredUser
 from .serializers import NoteSerializer, RegisteredUserSerializer, LoginSerializer
 
 
-# Create your views here.
 class UserRegistrationView(APIView):
     def post(self, request):
         serializer = RegisteredUserSerializer(data=request.data)
@@ -22,8 +22,7 @@ class LoginView(APIView):
         if serializer.is_valid():
             user_id = serializer.validated_data['user_id']
             return Response({"message": "Login successful", "user_id": user_id})
-        else:
-            return Response(serializer.errors, status=400)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class NotesCreateView(APIView):
@@ -45,7 +44,6 @@ class NotesListView(APIView):
 
 
 class NotesUpdateView(APIView):
-
     def put(self, request, user_id, note_id):
         note = Note.objects.get(id=note_id, user_id=user_id)
         serializer = NoteSerializer(note, data=request.data)
@@ -56,11 +54,10 @@ class NotesUpdateView(APIView):
 
 
 class NotesDeleteView(APIView):
-
-        def delete(self, request, user_id, note_id):
-            try:
-                note = Note.objects.get(id=note_id, user_id=user_id)
-                note.delete()
-                return Response({"message": "Note deleted successfully."}, status=status.HTTP_204_NO_CONTENT)
-            except Note.DoesNotExist:
-                return Response({"error": "Note not found."}, status=status.HTTP_404_NOT_FOUND)
+    def delete(self, request, user_id, note_id):
+        try:
+            note = Note.objects.get(id=note_id, user_id=user_id)
+            note.delete()
+            return Response({"message": "Note deleted successfully."}, status=status.HTTP_204_NO_CONTENT)
+        except Note.DoesNotExist:
+            return Response({"error": "Note not found."}, status=status.HTTP_404_NOT_FOUND)

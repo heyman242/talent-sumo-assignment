@@ -8,8 +8,4 @@ urlpatterns = [
     path('id/<int:user_id>/list/', NotesListView.as_view(), name='noteslist'),
     path('id/<int:user_id>/note/<int:note_id>', NotesUpdateView.as_view(), name='notesupdate'),
     path('id/<int:user_id>/delete/<int:note_id>', NotesDeleteView.as_view(), name='notesdelete'),
-
-
-
-
 ]
