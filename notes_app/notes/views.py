@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Note, RegisteredUser
-from .serializers import NoteSerializer,RegisteredUserSerializer, LoginSerializer
+from .serializers import NoteSerializer, RegisteredUserSerializer, LoginSerializer
 
 
 # Create your views here.
@@ -41,3 +41,15 @@ class NotesListView(APIView):
         notes = Note.objects.filter(user=user)
         serializer = NoteSerializer(notes, many=True)
         return Response(serializer.data)
+
+
+class NotesUpdateView(APIView):
+
+    def put(self, request, user_id, note_id):
+        note = Note.objects.get(id=note_id, user_id=user_id)
+        serializer = NoteSerializer(note, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
