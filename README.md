@@ -4,17 +4,17 @@ Project Description:
 
 This project aims to create a platform for storing and managing notes. The system allows users to create, store, and share textual, audio, and video notes. The project implements functional REST APIs to provide the required functionality.
 
-##Key Features:
+## Key Features:
 
-##User Registration: 
+## User Registration: 
 Users can register on the platform by providing their name, phone number, email, and password.
-##User Login:
+## User Login:
 Registered users can log in to the system using their phone number and password.
-##Note Creation: 
+## Note Creation: 
 Users can create notes by providing the necessary details such as title, content, type (textual, audio, or video), and optionally share the notes with other users.
-##Note Querying: 
+## Note Querying: 
 Users can retrieve their own notes and notes shared with them by querying the stored notes.
-##Note Update and Deletion: 
+## Note Update and Deletion: 
 Users can update and delete their own notes.
 Optional Feature:
 
