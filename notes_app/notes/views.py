@@ -1,3 +1,4 @@
+from django.db.models import Q
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -38,7 +39,7 @@ class NotesCreateView(APIView):
 class NotesListView(APIView):
     def get(self, request, user_id):
         user = RegisteredUser.objects.get(pk=user_id)
-        notes = Note.objects.filter(user=user)
+        notes = Note.objects.filter(Q(user=user) | Q(shared_with=user))
         serializer = NoteSerializer(notes, many=True)
         return Response(serializer.data)
 
