@@ -18,6 +18,23 @@ class RegisteredUserSerializer(serializers.ModelSerializer):
         return instance
 
 
+class LoginSerializer(serializers.Serializer):
+    phone_number = serializers.CharField()
+    password = serializers.CharField()
+
+    def validate(self, data):
+        phone_number = data.get('phone_number')
+        password = data.get('password')
+
+        user = RegisteredUser.objects.filter(phone_number=phone_number, password=password).first()
+        if user is None:
+            raise serializers.ValidationError("Invalid phone number or password")
+
+        data['user_id'] = user.id
+
+        return data
+
+
 class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note
