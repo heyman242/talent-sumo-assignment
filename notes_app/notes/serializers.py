@@ -38,4 +38,4 @@ class LoginSerializer(serializers.Serializer):
 class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note
-        fields = ['id', 'title', 'content', 'type', 'user', 'shared_with', 'created_at']
+        fields = ['id', 'title', 'content', 'type', 'shared_with', 'created_at']

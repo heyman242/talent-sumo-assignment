@@ -1,8 +1,10 @@
 from django.urls import path
-from .views import UserRegistrationView, LoginView
+from .views import UserRegistrationView, LoginView, NotesCreateView
 
 urlpatterns = [
     path('register/', UserRegistrationView.as_view(), name='register'),
     path('login', LoginView.as_view(), name='login'),
-    # path('notes/', NoteListAPIView.as_view(), name='note-list'),
+    path('id/<int:user_id>/create/', NotesCreateView.as_view(), name='notescreate'),
+
+
 ]

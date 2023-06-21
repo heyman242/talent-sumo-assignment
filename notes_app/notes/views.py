@@ -14,6 +14,7 @@ class UserRegistrationView(APIView):
             return Response({'message': 'Registered successfully'}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 class LoginView(APIView):
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
@@ -22,3 +23,15 @@ class LoginView(APIView):
             return Response({"message": "Login successful", "user_id": user_id})
         else:
             return Response(serializer.errors, status=400)
+
+
+class NotesCreateView(APIView):
+    def post(self, request, user_id):
+        user = RegisteredUser.objects.get(pk=user_id)
+        serializer = NoteSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(user=user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+

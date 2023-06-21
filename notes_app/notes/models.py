@@ -22,5 +22,13 @@ class Note(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     type = models.CharField(max_length=10, choices=TYPE_CHOICES)
+    user = models.ForeignKey(RegisteredUser, on_delete=models.CASCADE, related_name='notes')
     shared_with = models.ManyToManyField(RegisteredUser, related_name='shared_notes', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+
+
+
