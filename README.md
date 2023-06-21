@@ -4,13 +4,18 @@ Project Description:
 
 This project aims to create a platform for storing and managing notes. The system allows users to create, store, and share textual, audio, and video notes. The project implements functional REST APIs to provide the required functionality.
 
-Key Features:
+##Key Features:
 
-User Registration: Users can register on the platform by providing their name, phone number, email, and password.
-User Login: Registered users can log in to the system using their phone number and password.
-Note Creation: Users can create notes by providing the necessary details such as title, content, type (textual, audio, or video), and optionally share the notes with other users.
-Note Querying: Users can retrieve their own notes and notes shared with them by querying the stored notes.
-Note Update and Deletion: Users can update and delete their own notes.
+##User Registration: 
+Users can register on the platform by providing their name, phone number, email, and password.
+##User Login:
+Registered users can log in to the system using their phone number and password.
+##Note Creation: 
+Users can create notes by providing the necessary details such as title, content, type (textual, audio, or video), and optionally share the notes with other users.
+##Note Querying: 
+Users can retrieve their own notes and notes shared with them by querying the stored notes.
+##Note Update and Deletion: 
+Users can update and delete their own notes.
 Optional Feature:
 
 Note Sharing: Users have the option to share their notes with other users on the platform.
@@ -29,13 +34,17 @@ Navigate to the project directory using the cd command. For example:
 
 Create a virtual environment (optional but recommended) to isolate the project dependencies.
 Run the following command:
-On Windows: > python -m venv env
-On macOS and Linux: > python3 -m venv env
+On Windows: 
+> python -m venv env
+On macOS and Linux:
+> python3 -m venv env
 
 Activate the virtual environment:
-On Windows: > env\Scripts\activate
+On Windows: 
+> env\Scripts\activate
 
-On macOS and Linux: > source env/bin/activate
+On macOS and Linux: 
+> source env/bin/activate
 
 Install the project dependencies. 
 Run the following command:
