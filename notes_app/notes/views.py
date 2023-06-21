@@ -35,3 +35,9 @@ class NotesCreateView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+class NotesListView(APIView):
+    def get(self, request, user_id):
+        user = RegisteredUser.objects.get(pk=user_id)
+        notes = Note.objects.filter(user=user)
+        serializer = NoteSerializer(notes, many=True)
+        return Response(serializer.data)
