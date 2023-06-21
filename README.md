@@ -16,12 +16,12 @@ Users can create notes by providing the necessary details such as title, content
 Users can retrieve their own notes and notes shared with them by querying the stored notes.
 ## Note Update and Deletion: 
 Users can update and delete their own notes.
-Optional Feature:
+## Optional Feature:
 
 Note Sharing: Users have the option to share their notes with other users on the platform.
 The project uses SQLite as the database for testing the API functionality.
 
-To clone the project on a different computer, follow these steps:
+##To clone the project on a different computer, follow these steps:
 
 Open a terminal or command prompt.
 Navigate to the directory where you want to clone the project.
