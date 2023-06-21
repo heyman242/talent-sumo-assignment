@@ -53,3 +53,13 @@ class NotesUpdateView(APIView):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+class NotesDeleteView(APIView):
+
+        def delete(self, request, user_id, note_id):
+            try:
+                note = Note.objects.get(id=note_id, user_id=user_id)
+                note.delete()
+                return Response({"message": "Note deleted successfully."}, status=status.HTTP_204_NO_CONTENT)
+            except Note.DoesNotExist:
+                return Response({"error": "Note not found."}, status=status.HTTP_404_NOT_FOUND)
